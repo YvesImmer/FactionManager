@@ -11,15 +11,15 @@ namespace M120Projekt
         {
             Debug.Print("--- DemoACreate ---");
             // KlasseA
-            Data.KlasseA klasseA1 = new Data.KlasseA();
-            klasseA1.TextAttribut = "Artikel 1";
-            klasseA1.DatumAttribut = DateTime.Today;
+            Data.Faction klasseA1 = new Data.Faction();
+            klasseA1.Name = "Artikel 1";
+            klasseA1.EditDate = DateTime.Today;
             Int64 klasseA1Id = klasseA1.Erstellen();
             Debug.Print("Artikel erstellt mit Id:" + klasseA1Id);
         }
         public static void DemoACreateKurz()
         {
-            Data.KlasseA klasseA2 = new Data.KlasseA { TextAttribut = "Artikel 2", BooleanAttribut = true, DatumAttribut = DateTime.Today };
+            Data.Faction klasseA2 = new Data.Faction { Name = "Artikel 2", BooleanAttribut = true, EditDate = DateTime.Today };
             Int64 klasseA2Id = klasseA2.Erstellen();
             Debug.Print("Artikel erstellt mit Id:" + klasseA2Id);
         }
@@ -29,9 +29,9 @@ namespace M120Projekt
         {
             Debug.Print("--- DemoARead ---");
             // Demo liest alle
-            foreach (Data.KlasseA klasseA in Data.KlasseA.LesenAlle())
+            foreach (Data.Faction klasseA in Data.Faction.LesenAlle())
             {
-                Debug.Print("Artikel Id:" + klasseA.KlasseAId + " Name:" + klasseA.TextAttribut);
+                Debug.Print("Artikel Id:" + klasseA.KlasseAId + " Name:" + klasseA.Name);
             }
         }
         // Update
@@ -39,15 +39,15 @@ namespace M120Projekt
         {
             Debug.Print("--- DemoAUpdate ---");
             // KlasseA ändert Attribute
-            Data.KlasseA klasseA1 = Data.KlasseA.LesenID(1);
-            klasseA1.TextAttribut = "Artikel 1 nach Update";
+            Data.Faction klasseA1 = Data.Faction.LesenID(1);
+            klasseA1.Name = "Artikel 1 nach Update";
             klasseA1.Aktualisieren();
         }
         // Delete
         public static void DemoADelete()
         {
             Debug.Print("--- DemoADelete ---");
-            Data.KlasseA.LesenID(2).Loeschen();
+            Data.Faction.LesenID(2).Loeschen();
             Debug.Print("Artikel mit Id 2 gelöscht");
         }
         #endregion
